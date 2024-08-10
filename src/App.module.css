@@ -1,0 +1,87 @@
+.App {
+  text-align: center;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+.container {
+	width: 500px;
+	height: 500px;
+	border-radius: 5px;
+	background-color: #282c34;
+	color: #fff;
+	text-align: center;
+	font-size: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: space-around;
+	margin-left: auto;
+	margin-right: auto;
+	gap: 10px;
+}
+
+.gameField {
+	width: 166px;
+    height: 166px;
+	border-radius: 5px;
+    background-color: #1b1d22;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: space-around;
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+	margin-left: 150px;
+    margin-right: 150px;
+    outline: 1px solid #1b1d22;
+}
+
+.gameFieldButton {
+	width: 50px;
+	height: 50px;
+	font-size: 25px;
+	outline: 1px solid #dbdcdf;
+	border-radius: 5px;
+	background-color: #282c34;
+}
+
+.yellow {
+	color: #e4db64;
+}
+.green {
+	color:#3da06f;
+}
+
+.gameFieldAccept {
+	width: 210px;
+	height: 50px;
+	font-size: 22px;
+	outline: 1px solid #1b1d22;
+	border-radius: 5px;
+	background-color: #dbdcdf;
+	color: #3da06f;
+}
+
+.information {
+	text-align: center;
+    display: block;
+    width: 100%;
+}
+.title {
+
+	text-align: center;
+}
