@@ -14,16 +14,20 @@ export const GameField = () => {
 		[0, 4, 8], [2, 4, 6] // Варианты побед по диагонали
 	  ];
 
-	const [step, setStep] = useState(gamers.XMen)
+	const [step, setStep] = useState(gamers.XMen);
 	const [fields, setFields] = useState(Array(9).fill(''));
-	const [winner, setWinner] = useState('')
-
+	const [winner, setWinner] = useState('');
+	const [draw, setDraw] = useState('');
 	const handleClick = (id) => {
 		if(winner === '') {
-		const newFields=fields.map((field,index) => (index === id)&&(field === '')  ? (field = step) : field)
+		const newFields=fields.map((field,index) => {
+			if ((index === id)&&(field === '') ) {
+			setStep(prevStep => prevStep === gamers.XMen ? gamers.ZeroMen : gamers.XMen)
+			return field = step;
+			}  else return field})
 		setFields(newFields)
-		setStep(prevStep => prevStep === gamers.XMen ? gamers.ZeroMen : gamers.XMen)
 		checkedWinner(newFields, step);
+		checkedDraw(newFields);
 		}
 	}
 
@@ -34,10 +38,14 @@ export const GameField = () => {
 	const startOver = () => {
 		setFields(Array(9).fill(''));
 		setWinner('');
+		setDraw('')
+	}
+	const checkedDraw = (fields) => {
+		fields.includes('') ? setDraw('') : setDraw('Ничья')
 	}
 
 	return (<>
-	<p className={styles.information}>{winner === '' ? 'Ход пренадлежит ' + step : 'Победил ' + winner}</p>
+	<p className={styles.information}>{winner === '' ? (draw === '' ? 'Ход пренадлежит ' + step : draw) : 'Победил ' + winner }</p>
 	<div className={styles.gameField}>
 		<FieldButton fields = {fields} handleClick = {handleClick}/>
 	</div>
